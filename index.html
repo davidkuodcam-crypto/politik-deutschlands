@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>德意志聯邦共和國政治體制全景指南 | Das Politische System Deutschlands</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gerGold: '#FFCC00',
+                        gerRed: '#DD0000',
+                        gerBlack: '#1A1A1A',
+                        slateDark: '#0F172A',
+                        cardDark: '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .flag-gradient {
+            background: linear-gradient(135deg, #111827 33%, #991b1b 33% 66%, #b45309 66%);
+        }
+        .hero-pattern {
+            background-color: #0b1120;
+            background-image: radial-gradient(rgba(255, 204, 0, 0.08) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .institution-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .institution-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        .active-tab {
+            border-bottom: 3px solid #FFCC00;
+            color: #FFCC00 !important;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans selection:bg-amber-400 selection:text-black antialiased">
+
+    <!-- 頂部德意志國旗色彩飾條 -->
+    <div class="h-1.5 w-full flex">
+        <div class="h-full w-1/3 bg-black"></div>
+        <div class="h-full w-1/3 bg-red-600"></div>
+        <div class="h-full w-1/3 bg-amber-400"></div>
+    </div>
+
+    <!-- 導航欄 Navigation -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-slate-800/80 px-4 sm:px-8 py-3.5 transition-all">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 flex items-center justify-center text-amber-400 group-hover:scale-105 transition-transform shadow-inner">
+                    <i class="fa-solid fa-landmark text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-sm tracking-wider uppercase text-slate-400 font-mono block text-xs">Politik Deutschlands</span>
+                    <span class="text-lg font-bold tracking-tight text-white group-hover:text-amber-400 transition-colors">德國政治體系指南</span>
+                </div>
+            </a>
+
+            <!-- 桌機選單 -->
+            <div class="hidden lg:flex items-center space-x-1 text-sm font-medium">
+                <a href="#overview" class="px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/60 transition">憲政總覽</a>
+                <a href="#institutions" class="px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/60 transition">五大核心機構</a>
+                <a href="#parties" class="px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/60 transition">政黨光譜</a>
+                <a href="#election-system" class="px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/60 transition">雙票選舉制</a>
+                <a href="#federalism" class="px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/60 transition">聯邦制與地方</a>
+                <a href="#principles" class="px-3 py-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/60 transition">基本法特色</a>
+            </div>
+
+            <!-- 行動裝置按鈕 -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobileMenuBtn" aria-label="切換選單" class="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white focus:outline-none">
+                    <i class="fa-solid fa-bars text-lg" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 行動裝置選單內容 -->
+        <div id="mobileMenu" class="hidden lg:hidden pt-3 pb-2 border-t border-slate-800/80 mt-3 flex flex-col space-y-1">
+            <a href="#overview" class="mobile-link px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">憲政總覽</a>
+            <a href="#institutions" class="mobile-link px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">五大核心機構</a>
+            <a href="#parties" class="mobile-link px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">政黨光譜</a>
+            <a href="#election-system" class="mobile-link px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">雙票選舉制</a>
+            <a href="#federalism" class="mobile-link px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">聯邦制與地方</a>
+            <a href="#principles" class="mobile-link px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800">基本法特色</a>
+        </div>
+    </nav>
+
+    <!-- 英雄區 Hero Section -->
+    <header class="relative hero-pattern pt-20 pb-28 border-b border-slate-800 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-8">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-mono text-amber-400 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                        Grundgesetz · 議會制聯邦共和國
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white mb-6">
+                        協商、制衡與防衛性民主：<br>
+                        <span class="bg-gradient-to-r from-amber-400 via-rose-500 to-amber-200 bg-clip-text text-transparent">德意志聯邦體制</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed mb-8">
+                        德國政治以1949年《基本法》（Grundgesetz）為基石，深記威瑪共和國瓦解與納粹極權教訓，建構出全球典範的聯邦制、建設性不信任投票及比例代表混合選舉制。
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                        <a href="#institutions" class="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold transition flex items-center gap-2 shadow-lg shadow-amber-500/20">
+                            探索國家權力結構 <i class="fa-solid fa-arrow-down text-sm"></i>
+                        </a>
+                        <a href="#election-system" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium border border-slate-700 transition flex items-center gap-2">
+                            互動模擬：聯邦議院算票 <i class="fa-solid fa-calculator text-amber-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 核心速覽小卡片 -->
+                <div class="md:col-span-4">
+                    <div class="p-6 rounded-2xl bg-gradient-to-b from-slate-800/90 to-slate-900/90 border border-slate-700/80 shadow-2xl space-y-4">
+                        <div class="text-xs uppercase font-mono tracking-wider text-amber-400/90 font-bold">基本憲政特徵矩陣</div>
+                        <div class="divide-y divide-slate-700/60">
+                            <div class="py-3 flex justify-between items-center text-sm">
+                                <span class="text-slate-400">政體形態</span>
+                                <span class="font-semibold text-white">議會共和制（聯邦制）</span>
+                            </div>
+                            <div class="py-3 flex justify-between items-center text-sm">
+                                <span class="text-slate-400">國家元首</span>
+                                <span class="font-semibold text-white">聯邦總統 (虛位元首)</span>
+                            </div>
+                            <div class="py-3 flex justify-between items-center text-sm">
+                                <span class="text-slate-400">最高行政首長</span>
+                                <span class="font-semibold text-amber-400">聯邦總理 (實權樞紐)</span>
+                            </div>
+                            <div class="py-3 flex justify-between items-center text-sm">
+                                <span class="text-slate-400">立法機構</span>
+                                <span class="font-semibold text-white">聯邦議院 + 聯邦參議院</span>
+                            </div>
+                            <div class="py-3 flex justify-between items-center text-sm">
+                                <span class="text-slate-400">憲政守護者</span>
+                                <span class="font-semibold text-white">聯邦憲法法院 (卡爾斯魯厄)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主體內容區塊 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+
+        <!-- 第一部分：憲政體制總覽與互動機構圖 -->
+        <section id="institutions" class="scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 rounded-full text-xs font-mono uppercase tracking-widest font-semibold">
+                    Verfassungsorgane
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-4">五大核心憲政機構</h2>
+                <p class="text-slate-400 text-base sm:text-lg">
+                    權力嚴格分立且相互制約。點擊切換各機關職能、地位與產生方式，深入理解權力運作網絡。
+                </p>
+            </div>
+
+            <!-- 機構切換按鈕組 -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8" id="institutionTabs">
+                <button onclick="switchInstitution('kanzler')" class="inst-tab px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 text-sm font-semibold transition active-tab" data-target="kanzler">
+                    <i class="fa-solid fa-user-tie mr-1.5"></i> 聯邦總理 (Kanzler)
+                </button>
+                <button onclick="switchInstitution('bundestag')" class="inst-tab px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 text-sm font-semibold transition text-slate-300 hover:text-white" data-target="bundestag">
+                    <i class="fa-solid fa-users mr-1.5"></i> 聯邦議院 (Bundestag)
+                </button>
+                <button onclick="switchInstitution('bundesrat')" class="inst-tab px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 text-sm font-semibold transition text-slate-300 hover:text-white" data-target="bundesrat">
+                    <i class="fa-solid fa-building-columns mr-1.5"></i> 聯邦參議院 (Bundesrat)
+                </button>
+                <button onclick="switchInstitution('president')" class="inst-tab px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 text-sm font-semibold transition text-slate-300 hover:text-white" data-target="president">
+                    <i class="fa-solid fa-award mr-1.5"></i> 聯邦總統 (Bundespräsident)
+                </button>
+                <button onclick="switchInstitution('court')" class="inst-tab px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 text-sm font-semibold transition text-slate-300 hover:text-white" data-target="court">
+                    <i class="fa-solid fa-scale-balanced mr-1.5"></i> 聯邦憲法法院 (BVerfG)
+                </button>
+            </div>
+
+            <!-- 機構詳細資訊容器 -->
+            <div id="institutionContent" class="glass-panel rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-xl transition-all duration-300">
+                <!-- 動態注入內容，由 JavaScript 驅動 -->
+            </div>
+        </section>
+
+        <!-- 第二部分：政黨光譜與聯合內閣機制 -->
+        <section id="parties" class="scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 rounded-full text-xs font-mono uppercase tracking-widest font-semibold">
+                    Parteienlandschaft & Koalitionen
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-4">德國主要政黨與光譜</h2>
+                <p class="text-slate-400 text-base sm:text-lg">
+                    德國政治本質是「妥協的藝術」。由於少有單一政黨能在聯邦議院單獨過半，歷屆政府幾乎皆由政黨聯盟（Koalition）共同執政。
+                </p>
+            </div>
+
+            <!-- 光譜滑動/分布卡片 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- SPD -->
+                <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between institution-card">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-bold tracking-wider">左翼至中間偏左</span>
+                            <span class="text-xs text-slate-400 font-mono">1863年成立</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-600 inline-block"></span>
+                            社會民主黨 (SPD)
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            德國歷史最悠久的傳統大黨之一。重視社會公平、勞工權益、福利體系健全、積極倡導氣候政策但兼顧勞工轉型。
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+                        代表標誌：紅色 · 代表人物：奧拉夫·蕭茲 (Olaf Scholz) 等
+                    </div>
+                </div>
+
+                <!-- CDU/CSU -->
+                <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between institution-card">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-slate-700/40 text-slate-300 border border-slate-600/40 text-xs font-bold tracking-wider">中間偏右</span>
+                            <span class="text-xs text-slate-400 font-mono">1945年成立</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-black border border-slate-600 inline-block"></span>
+                            聯盟黨 (CDU / CSU)
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            基民盟（全德）與基社盟（巴伐利亞邦獨立運作）組成的議會聯盟。崇尚社會市場經濟、基督教價值觀、國家財政紀律與強大國防。
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+                        代表標誌：黑色 · 歷史代表：阿登納、柯爾、梅克爾 (Angela Merkel)
+                    </div>
+                </div>
+
+                <!-- 綠黨 -->
+                <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between institution-card">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold tracking-wider">中間偏左 / 生態主義</span>
+                            <span class="text-xs text-slate-400 font-mono">1980年成立</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                            聯盟90/綠黨 (Bündnis 90/Die Grünen)
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            專注於環境保護、碳中和轉型、社會多元包容及以人權為核心的進步外交政策，在年輕都會選民中深具影響力。
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+                        代表標誌：綠色 · 代表人物：貝爾伯克、哈貝克
+                    </div>
+                </div>
+
+                <!-- 自民黨 FDP -->
+                <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between institution-card">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold tracking-wider">古典自由主義</span>
+                            <span class="text-xs text-slate-400 font-mono">1948年成立</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+                            自由民主黨 (FDP)
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            倡導自由市場經濟、減稅、減少政府官僚管制、數位化轉型，並嚴格堅持「債務煞車」（Schuldenbremse）憲法財政約束。
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+                        代表標誌：黃色 · 代表人物：克里斯蒂安·林德納 (Christian Lindner)
+                    </div>
+                </div>
+
+                <!-- AfD -->
+                <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between institution-card">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-sky-600/20 text-sky-400 border border-sky-500/30 text-xs font-bold tracking-wider">右翼民粹 / 保守疑歐</span>
+                            <span class="text-xs text-slate-400 font-mono">2013年成立</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-sky-500 inline-block"></span>
+                            德國另類選擇 (AfD)
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            持強烈反移民、疑歐主義、否定氣候變遷政策等主張，在東部各邦具高支持度；其他主流政黨皆對其採取「防火牆（Brandmauer）」拒絕合作。
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+                        代表標誌：淡藍色 · 爭議：受聯邦憲法保衛局調查列管
+                    </div>
+                </div>
+
+                <!-- 左翼黨 Die Linke / BSW -->
+                <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between institution-card">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded bg-fuchsia-600/20 text-fuchsia-400 border border-fuchsia-500/30 text-xs font-bold tracking-wider">民主社會主義 / 左翼反叛</span>
+                            <span class="text-xs text-slate-400 font-mono">2007年成立 / 2024分裂</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-fuchsia-500 inline-block"></span>
+                            左翼黨 (Die Linke) & BSW
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            反對軍備競賽與北約擴張，強調打擊大企業與財富重分配。近年瓦根克內希特（BSW）分裂出走，主打經濟左傾但文化與移民政策保守。
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 text-xs text-slate-400">
+                        代表標誌：洋紅/紫紅 · 光譜最左翼勢力
+                    </div>
+                </div>
+            </div>
+
+            <!-- 常見聯合內閣形式解說 -->
+            <div class="mt-8 p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
+                <h4 class="text-base font-bold text-white mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-palette text-amber-400"></i>
+                    德國獨特的「內閣色彩學」名詞
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+                    <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700/50">
+                        <span class="font-bold text-white block mb-1">交通信號燈 (Ampel)</span>
+                        <div class="flex gap-1.5 mb-1.5"><span class="w-3 h-3 bg-red-600 rounded-full"></span><span class="w-3 h-3 bg-amber-400 rounded-full"></span><span class="w-3 h-3 bg-emerald-500 rounded-full"></span></div>
+                        <span class="text-slate-400">社民黨 (紅) + 自民黨 (黃) + 綠黨 (綠)</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700/50">
+                        <span class="font-bold text-white block mb-1">大聯合政府 (GroKo)</span>
+                        <div class="flex gap-1.5 mb-1.5"><span class="w-3 h-3 bg-black border border-slate-600 rounded-full"></span><span class="w-3 h-3 bg-red-600 rounded-full"></span></div>
+                        <span class="text-slate-400">聯盟黨 (黑) + 社民黨 (紅)</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700/50">
+                        <span class="font-bold text-white block mb-1">牙買加聯盟 (Jamaika)</span>
+                        <div class="flex gap-1.5 mb-1.5"><span class="w-3 h-3 bg-black border border-slate-600 rounded-full"></span><span class="w-3 h-3 bg-amber-400 rounded-full"></span><span class="w-3 h-3 bg-emerald-500 rounded-full"></span></div>
+                        <span class="text-slate-400">聯盟黨 (黑) + 自民黨 (黃) + 綠黨 (綠)</span>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-800/80 border border-slate-700/50">
+                        <span class="font-bold text-white block mb-1">肯亞聯盟 (Kenia)</span>
+                        <div class="flex gap-1.5 mb-1.5"><span class="w-3 h-3 bg-black border border-slate-600 rounded-full"></span><span class="w-3 h-3 bg-red-600 rounded-full"></span><span class="w-3 h-3 bg-emerald-500 rounded-full"></span></div>
+                        <span class="text-slate-400">聯盟黨 (黑) + 社民黨 (紅) + 綠黨 (綠)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三部分：雙票制與選舉制度互動試算 -->
+        <section id="election-system" class="scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 rounded-full text-xs font-mono uppercase tracking-widest font-semibold">
+                    Wahlsystem
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-4">聯邦議院選舉：個人化比例代表制</h2>
+                <p class="text-slate-400 text-base sm:text-lg">
+                    每位德國選民手握兩票（Zweitstimme）。第一票選人、第二票選黨，後者才是決定議會各黨席次總比例的最關鍵一票！
+                </p>
+            </div>
+
+            <!-- 兩票概念對照 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-900/40 border border-slate-800">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="w-8 h-8 rounded-full bg-slate-800 text-amber-400 flex items-center justify-center font-bold text-sm border border-slate-700">1</span>
+                        <h3 class="text-lg font-bold text-white">第一票：選區代表 (Erststimme)</h3>
+                    </div>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        全德劃分為299個單一選區，由相對多數制選出地方選區議員，確保各地選民在柏林國會有具體的在地民意代表。
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-900/40 border border-amber-500/40 shadow-lg shadow-amber-500/5">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="w-8 h-8 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center font-bold text-sm">2</span>
+                        <h3 class="text-lg font-bold text-white">第二票：政黨名單 (Zweitstimme) - 最關鍵！</h3>
+                    </div>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        投給政黨提出的邦級候選人名單。該票所得百分比，嚴格決定了該政黨在聯邦議院中所能分配到的總席次比例。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 互動式門檻與席次試算體驗器 -->
+            <div class="p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-800">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 pb-6 border-b border-slate-800">
+                    <div>
+                        <h4 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-sliders text-amber-400"></i>
+                            5% 門檻條款 (5%-Sperrklausel) 模擬試算
+                        </h4>
+                        <p class="text-xs text-slate-400 mt-1">
+                            政黨第二票必須達到全國 5% 門檻（或在選區贏得至少3席直選），才能分配席次，以防止國會破碎化。
+                        </p>
+                    </div>
+                    <button onclick="resetElectionSim()" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition border border-slate-700">
+                        重置預設數據
+                    </button>
+                </div>
+
+                <!-- 互動滑桿設定 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" id="sliderGroup">
+                    <div>
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="font-medium text-slate-300">政黨 A (傳統大黨)</span>
+                            <span id="valA" class="font-mono text-amber-400 font-bold">32%</span>
+                        </div>
+                        <input type="range" id="partyA" min="0" max="60" value="32" oninput="updateSim()" class="w-full accent-amber-400 cursor-pointer">
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="font-medium text-slate-300">政黨 B (競爭大黨)</span>
+                            <span id="valB" class="font-mono text-amber-400 font-bold">26%</span>
+                        </div>
+                        <input type="range" id="partyB" min="0" max="60" value="26" oninput="updateSim()" class="w-full accent-amber-400 cursor-pointer">
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="font-medium text-slate-300">政黨 C (中型黨)</span>
+                            <span id="valC" class="font-mono text-amber-400 font-bold">14%</span>
+                        </div>
+                        <input type="range" id="partyC" min="0" max="40" value="14" oninput="updateSim()" class="w-full accent-amber-400 cursor-pointer">
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs mb-1">
+                            <span class="font-medium text-slate-300">政黨 D (邊緣小型黨)</span>
+                            <span id="valD" class="font-mono text-amber-400 font-bold">4.8%</span>
+                        </div>
+                        <input type="range" id="partyD" min="0" max="15" step="0.1" value="4.8" oninput="updateSim()" class="w-full accent-amber-400 cursor-pointer">
+                    </div>
+                </div>
+
+                <!-- 模擬結果視覺化 -->
+                <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800">
+                    <div class="text-xs uppercase font-mono tracking-wider text-slate-400 mb-3">試算分析結論 (以基準總席次 630 席估算)</div>
+                    <div id="simResultDetails" class="text-sm space-y-2 text-slate-300">
+                        <!-- JS 動態計算 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第四部分：聯邦制度與16邦結構 -->
+        <section id="federalism" class="scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 rounded-full text-xs font-mono uppercase tracking-widest font-semibold">
+                    Föderalismus
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-4">聯邦主義：16個邦與中央分權</h2>
+                <p class="text-slate-400 text-base sm:text-lg">
+                    教育、警察、文化等自治權專屬各邦，並藉由聯邦參議院參與國家重大法律與財政決策，落實「縱向權力分立」。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="w-10 h-10 rounded-xl bg-slate-800 text-amber-400 flex items-center justify-center text-xl mb-4 border border-slate-700">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">文化與教育主權</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        德國各邦在中小學教育政策、高等教育及警政執法上擁有高度獨立自治權，中央政府（聯邦）不得越俎代庖。
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="w-10 h-10 rounded-xl bg-slate-800 text-amber-400 flex items-center justify-center text-xl mb-4 border border-slate-700">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">邦際財政平衡制度</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        實施「Länderfinanzausgleich」平衡機制，經濟富裕邦（如巴伐利亞、巴符邦）轉移部分稅收給財政較薄弱的邦，確保全德生活水準衡平。
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="w-10 h-10 rounded-xl bg-slate-800 text-amber-400 flex items-center justify-center text-xl mb-4 border border-slate-700">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">同心協同政治 (Kooperativer Föderalismus)</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        聯邦立法常需超過半數以上涉及邦財政管轄的法律獲得聯邦參議院同意，迫使中央與地方政黨必須跨陣營協商共識。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第五部分：基本法防衛性民主與核心精神 -->
+        <section id="principles" class="scroll-mt-20">
+            <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900/90 to-amber-950/20 border border-slate-800 shadow-2xl">
+                <div class="max-w-3xl mb-8">
+                    <span class="text-xs font-mono tracking-widest text-amber-400 uppercase font-bold">Wehrhafte Demokratie</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">防衛性民主：自由不得用於摧毀自由</h2>
+                    <p class="text-slate-300 text-sm sm:text-base mt-2">
+                        二戰後制定的《基本法》奠定了特殊憲法哲學：民主體制不再是任由反民主勢力鑽營利用的脆弱機制，而是具有自我防衛能力的堡壘。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                    <div class="p-5 rounded-2xl bg-slate-950/70 border border-slate-800">
+                        <h4 class="font-bold text-amber-400 flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-shield-halved"></i> 違憲政黨取締權 (Parteiverbot)
+                        </h4>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                            依《基本法》第21條第2款，若有政黨意圖損害或廢除自由民主基本秩序，聯邦憲法法院有權宣告該政黨違憲並予以強制解散。
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/70 border border-slate-800">
+                        <h4 class="font-bold text-amber-400 flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-lock"></i> 萬代條款 (Ewigkeitsklausel, 第79條第3款)
+                        </h4>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                            嚴格禁止修改基本法第1條（人性尊嚴不可侵犯）及第20條（民主國、法治國、社會國、聯邦制原則），即使國會全體無異議修憲亦絕對無效。
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/70 border border-slate-800">
+                        <h4 class="font-bold text-amber-400 flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-arrows-spin"></i> 建設性不信任投票 (Konstruktives Misstrauensvotum)
+                        </h4>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                            聯邦議院若要推翻現任總理，必須同時以絕對多數選出新任總理。杜絕了威瑪時期極左極右聯手倒閣卻無法組閣的政治真空癱瘓危機。
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-950/70 border border-slate-800">
+                        <h4 class="font-bold text-amber-400 flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-triangle-exclamation"></i> 抵抗權 (Widerstandsrecht)
+                        </h4>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                            基本法第20條第4款保障全體德國人民在別無其他補救管道時，對任何企圖顛覆民主憲政秩序者擁有合法的抵抗權力。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 頁腳 Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-12 text-slate-400 text-xs sm:text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-amber-400">
+                    <i class="fa-solid fa-landmark"></i>
+                </div>
+                <div>
+                    <div class="font-bold text-white">德國政治制度全景指南</div>
+                    <div class="text-slate-500 text-xs">基於德意志聯邦共和國《基本法》體制整理</div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-6 text-slate-400 text-xs">
+                <span>Einigkeit und Recht und Freiheit (統一、正義與自由)</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 互動邏輯 -->
+    <script>
+        // 五大機構互動數據庫
+        const institutionsData = {
+            kanzler: {
+                title: "聯邦總理 (Bundeskanzler)",
+                subtitle: "政府首腦 · 行政實權核心",
+                badge: "最高行政首長",
+                summary: "聯邦總理是德國政治運作的核心樞紐。依據基本法，總理享有「方針決定權」（Richtlinienkompetenz），亦即對政府全盤政策方針擁有最終決定權。",
+                points: [
+                    { title: "產生方式", desc: "由聯邦總統提名，未經辯論由聯邦議院（Bundestag）議員秘密投票過半數選舉產生。" },
+                    { title: "防衛性穩固性", desc: "受「建設性不信任投票」保護，反對黨唯有在選出替代總理的情況下才能將其罷免。" },
+                    { title: "部長決定權", desc: "各聯邦部長由總理挑選並建議總統任命，內閣成員對總理政策綱領負責。" }
+                ],
+                quote: "「聯邦總理決定國家大政方針，並對此承擔責任。」——《德意志聯邦共和國基本法》第65條"
+            },
+            bundestag: {
+                title: "聯邦議院 (Deutscher Bundestag)",
+                subtitle: "唯一的民選國家最高立法機關 · 柏林國會大廈",
+                badge: "民意代表機關",
+                summary: "聯邦議院是德國聯邦體系中唯一直接由全民普選產生的憲政機構，負責制定聯邦法律、選舉總理、監督政府並批准國家財政預算。",
+                points: [
+                    { title: "立法權限", desc: "審議並通過全德性法律案，對政府法案與財政預算案擁有最終實質審查權。" },
+                    { title: "監督行政", desc: "透過大質詢（Große Anfrage）、成立調查委員會等憲法工具，嚴密監督聯邦政府施政。" },
+                    { title: "總理選舉", desc: "作為唯一擁有總理任命民主授權的機關，構成議會制的核心基石。" }
+                ],
+                quote: "「聯邦議員為全體人民之代表，不受命令與訓令之拘束，唯服從其良知。」——基本法第38條"
+            },
+            bundesrat: {
+                title: "聯邦參議院 (Bundesrat)",
+                subtitle: "16個邦政府的代表機關 · 位於柏林",
+                badge: "聯邦主義核心",
+                summary: "聯邦參議院不是傳統意義上的上議院，其成員非民選議員，而是由16個邦政府指派其內閣成員組成，代表各邦利益參與聯邦立法院與行政管理。",
+                points: [
+                    { title: "席次分配 (共69席)", desc: "依各邦人口分配3至6票。各邦代表投票時必須捆綁投出一致立場（Blockwahl）。" },
+                    { title: "否決同意權 (Zustimmungsgesetze)", desc: "涉及邦財政、行政管轄之法律，必須獲得參議院絕對多數同意，否則無法生效。" },
+                    { title: "調解委員會", desc: "當聯邦議院與參議院法案意見衝突時，成立調解委員會（Vermittlungsausschuss）強制協商。" }
+                ],
+                quote: "各邦透過聯邦參議院參與聯邦的立法與行政事務，以及涉及歐洲聯盟的事務。"
+            },
+            president: {
+                title: "聯邦總統 (Bundespräsident)",
+                subtitle: "國家元首 · 貝爾維尤宮 (Schloss Bellevue)",
+                badge: "虛位元首 · 道德權威",
+                summary: "聯邦總統在對外事務上代表國家，簽署並公布法律。鑑於威瑪共和國總統權力過大（曾藉緊急命令法癱瘓民主），現行基本法大幅削減總統實權，轉為跨黨派超然的國家統合象徵。",
+                points: [
+                    { title: "產生方式", desc: "由「聯邦大會」（Bundesversammlung，由全體聯邦議員及同等數量的各邦議會代表組成）每五年選出一次。" },
+                    { title: "實質權限", desc: "形式簽署法律、提名總理人選（象徵性）、在特殊國會僵局時擁有解散國會或宣布立法緊急狀態的決定權。" },
+                    { title: "政治角色", desc: "超脫於日常政黨爭鬥之外，透過重大公眾演說發揮社會道德與憲政導師作用。" }
+                ],
+                quote: "「聯邦總統代表聯邦，代表國家與外國締結條約。」——基本法第59條"
+            },
+            court: {
+                title: "聯邦憲法法院 (Bundesverfassungsgericht)",
+                subtitle: "憲法的最高守護者 · 卡爾斯魯厄 (Karlsruhe)",
+                badge: "司法審查樞紐",
+                summary: "聯邦憲法法院享有極崇高的公信力，專責裁決政府機關權限爭議、法規違憲審查，並保障公民的基本憲法權利，擁有裁決政黨違憲解散的最終權力。",
+                points: [
+                    { title: "兩法庭體系", desc: "由第一法庭（基本權法庭）與第二法庭（國家法規爭議法庭）組成，共16名法官。" },
+                    { title: "產生平衡", desc: "半數法官由聯邦議院選出，半數由聯邦參議院選出，均需三分之二極高門檻通過，確保政黨中立。" },
+                    { title: "人民憲法訴願", desc: "任何公民若主張其基本權遭受國家公權力侵害，於用盡司法救濟途徑後均可向其提起訴願。" }
+                ],
+                quote: "憲法法院的判決對所有聯邦與邦之憲法機關、法院及官署皆具有拘束力。"
+            }
+        };
+
+        // 切換機構顯示
+        function switchInstitution(key) {
+            const data = institutionsData[key];
+            if (!data) return;
+
+            // 更新按鈕樣式
+            document.querySelectorAll('.inst-tab').forEach(btn => {
+                if (btn.getAttribute('data-target') === key) {
+                    btn.className = "inst-tab px-4 py-2.5 rounded-xl border border-amber-500/50 bg-slate-800 text-sm font-semibold transition active-tab shadow-md";
+                } else {
+                    btn.className = "inst-tab px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 text-sm font-semibold transition text-slate-300 hover:text-white";
+                }
+            });
+
+            // 渲染內容
+            const container = document.getElementById('institutionContent');
+            container.innerHTML = `
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start animate-fadeIn">
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="inline-block px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-400 text-xs font-mono font-semibold">
+                            ${data.badge}
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">${data.title}</h3>
+                        <p class="text-sm font-medium text-amber-300/80">${data.subtitle}</p>
+                        <p class="text-slate-300 text-sm leading-relaxed">${data.summary}</p>
+                        <div class="p-4 rounded-xl bg-slate-900/90 border-l-4 border-amber-400 text-xs italic text-slate-300 mt-4">
+                            ${data.quote}
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 grid grid-cols-1 gap-4">
+                        ${data.points.map(pt => `
+                            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+                                <h4 class="text-sm font-bold text-white mb-1.5 flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-amber-400 text-xs"></i>
+                                    ${pt.title}
+                                </h4>
+                                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">${pt.desc}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // 選舉制度動態試算模擬
+        function updateSim() {
+            const a = parseFloat(document.getElementById('partyA').value);
+            const b = parseFloat(document.getElementById('partyB').value);
+            const c = parseFloat(document.getElementById('partyC').value);
+            const d = parseFloat(document.getElementById('partyD').value);
+
+            document.getElementById('valA').innerText = a + '%';
+            document.getElementById('valB').innerText = b + '%';
+            document.getElementById('valC').innerText = c + '%';
+            document.getElementById('valD').innerText = d + '%';
+
+            const parties = [
+                { name: '政黨 A', pct: a, color: 'text-amber-400' },
+                { name: '政黨 B', pct: b, color: 'text-rose-400' },
+                { name: '政黨 C', pct: c, color: 'text-emerald-400' },
+                { name: '政黨 D (小型黨)', pct: d, color: 'text-sky-400' },
+            ];
+
+            const qualified = parties.filter(p => p.pct >= 5.0);
+            const disqualified = parties.filter(p => p.pct < 5.0);
+
+            const totalQualifiedPct = qualified.reduce((acc, cur) => acc + cur.pct, 0);
+            const totalBaseSeats = 630; // 德國2023年選舉法改革後法定席次
+
+            let html = `
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="space-y-2">
+                        <div class="text-xs text-slate-400 font-semibold">門檻判定狀況：</div>
+                        <ul class="text-xs space-y-1">
+                            ${parties.map(p => `
+                                <li class="flex items-center justify-between">
+                                    <span>${p.name} (${p.pct}%)</span>
+                                    ${p.pct >= 5.0 
+                                        ? '<span class="text-emerald-400 font-bold"><i class="fa-solid fa-check"></i> 跨越 5% 門檻</span>' 
+                                        : '<span class="text-red-400 font-bold"><i class="fa-solid fa-xmark"></i> 未達 5% (無法進入國會)</span>'}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <div class="space-y-2 border-t sm:border-t-0 sm:border-l border-slate-800 pt-3 sm:pt-0 sm:pl-4">
+                        <div class="text-xs text-slate-400 font-semibold">席次分配估算 (依合格政黨得票重新加權)：</div>
+                        ${qualified.length === 0 ? '<p class="text-xs text-red-400">所有政黨皆未達5%，無法組成國會！</p>' : `
+                            <ul class="text-xs space-y-1.5">
+                                ${qualified.map(p => {
+                                    const share = (p.pct / totalQualifiedPct);
+                                    const seats = Math.round(share * totalBaseSeats);
+                                    const pctSeats = ((seats / totalBaseSeats) * 100).toFixed(1);
+                                    return `
+                                        <li class="flex justify-between items-center">
+                                            <span class="font-medium text-white">${p.name}</span>
+                                            <span class="font-mono ${p.color} font-bold">${seats} 席 (${pctSeats}%)</span>
+                                        </li>
+                                    `;
+                                }).join('')}
+                            </ul>
+                        `}
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-800/80 text-xs text-slate-400">
+                    💡 <strong class="text-slate-300">觀察重點：</strong> 當小型黨（如政黨D）未滿 5% 時，其選票將不會被計入席次分配，所有合格政黨之國會議席比例將被等比放大。這正是德國防範威瑪時期政黨破碎化與極端主義癱瘓國會的關鍵安全閥。
+                </div>
+            `;
+
+            document.getElementById('simResultDetails').innerHTML = html;
+        }
+
+        function resetElectionSim() {
+            document.getElementById('partyA').value = 32;
+            document.getElementById('partyB').value = 26;
+            document.getElementById('partyC').value = 14;
+            document.getElementById('partyD').value = 4.8;
+            updateSim();
+        }
+
+        // 手機漢堡選單控制
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.replace('fa-bars', 'fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+
+        // 點擊手機導航連結後自動關閉選單
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
+        // 初始化
+        window.onload = function() {
+            switchInstitution('kanzler');
+            updateSim();
+        };
+    </script>
+</body>
+</html>
